@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doug Edmunds - Theater Enthusiast & Real Estate Professional</title>
+    <style>
+        :root {
+            --primary-blue: #003366;
+            --secondary-blue: #004080;
+            --accent-blue: #0066CC;
+            --light-blue: #4A90E2;
+            --pale-blue: #E6F3FF;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--pale-blue) 0%, var(--white) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 51, 102, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-menu a:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--light-blue);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 2rem;
+        }
+
+        .section {
+            background: var(--white);
+            margin: 2rem 0;
+            padding: 3rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.1);
+        }
+
+        .section:nth-child(even) {
+            background: var(--pale-blue);
+        }
+
+        .section h2 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-blue);
+            margin: 1rem auto;
+        }
+
+        /* Tabbed Content */
+        .tab-container {
+            margin: 2rem 0;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background: var(--light-blue);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .tab-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Theater Grid */
+        .theater-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .theater-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 51, 102, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .theater-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.2);
+        }
+
+        .theater-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .theater-type {
+            display: inline-block;
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Shows List */
+        .shows-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .show-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--light-blue);
+            transition: all 0.3s ease;
+        }
+
+        .show-item:hover {
+            background: var(--pale-blue);
+            transform: translateX(5px);
+        }
+
+        /* Biography */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .bio-text {
+            line-height: 1.8;
+        }
+
+        .bio-text h3 {
+            color: var(--primary-blue);
+            margin: 2rem 0 1rem;
+        }
+
+        .bio-text h3:first-child {
+            margin-top: 0;
+        }
+
+        .bio-image {
+            background: var(--light-blue);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .bio-image h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .shirt-design {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Personal Letter */
+        .letter {
+            background: #FDF6E3;
+            border: 2px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+
+        .letter::before {
+            content: 'Personal Letter to Merrill Osmond';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--accent-blue);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .letter h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Real Estate Section */
+        .real-estate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 51, 102, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-card h4 {
+            margin-bottom: 1rem;
+            color: var(--light-blue);
+        }
+
+        .contact-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+
+        .contact-note {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Photo Services */
+        .photo-services {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.1);
+        }
+
+        .photo-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .photo-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--pale-blue);
+            border-radius: 10px;
+            min-width: 150px;
+        }
+
+        /* Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 51, 102, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(0, 102, 204, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--light-blue);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--light-blue);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .tab-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .theater-grid,
+            .shows-list,
+            .real-estate-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                margin: 1rem 0;
+                padding: 2rem 0;
+            }
+        }
+
+        /* Search and Filter */
+        .search-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-input {
+            padding: 1rem;
+            border: 2px solid var(--accent-blue);
+            border-radius: 25px;
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(0, 102, 204, 0.3);
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 3px solid var(--pale-blue);
+            border-top: 3px solid var(--accent-blue);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <h1>Doug Edmunds</h1>
+                <p>Theater Enthusiast & Real Estate Professional</p>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#biography">Biography</a></li>
+                <li><a href="#theater">Theater Passion</a></li>
+                <li><a href="#shows">Favorite Shows</a></li>
+                <li><a href="#letter">Personal Letter</a></li>
+                <li><a href="#real-estate">Real Estate</a></li>
+                <li><a href="#photos">Photo Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Theater Fan & Real Estate Expert</h2>
+            <p>Celebrating 40+ years in real estate and 18 years of theater passion</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">4,800+</div>
+                    <div class="stat-label">Shows Attended</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20,000+</div>
+                    <div class="stat-label">Photos Taken</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Years Real Estate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Utah Theaters Visited</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="biography" class="section">
+            <div class="container">
+                <h2>Personal Biography</h2>
+                <div class="bio-content">
+                    <div class="bio-text">
+                        <h3>Early Life</h3>
+                        <p>Doug Edmunds was born on May 12, 1938, in Mt. Vernon, Washington. His formative years were spent in West Philadelphia until age 17, where he developed the foundation for his lifelong passion for the performing arts.</p>
+
+                        <h3>Military Service</h3>
+                        <p>Doug served 4 years in the US Air Force Strategic Air Command, stationed in Orlando, Florida, and England. This experience broadened his perspective and instilled the discipline that would later serve him well in both his real estate career and theater passion.</p>
+
+                        <h3>Real Estate Career</h3>
+                        <p>Doug entered the real estate industry in 1971 and joined V.I.P. Realty in 1972. In 1986, he established Sherlock of Homes Realtors, where he continues to serve clients with dedication and expertise. With over 40 years of experience, he has become a trusted name in Utah real estate.</p>
+
+                        <h3>Theater Discovery</h3>
+                        <p>Doug's theater addiction began unexpectedly and grew into an extraordinary passion. Over 18 years, he attended more than 4,800 shows across 60+ Utah theaters, capturing over 20,000 photos. His dedication to supporting the arts has made him a beloved figure in the theater community.</p>
+
+                        <h3>Superfan Recognition</h3>
+                        <p>Known for his unwavering support of theater artists, Doug created a signature t-shirt that reads:</p>
+                        <div class="shirt-design">
+                            <strong>FRONT:</strong> "ACTORS-THANK YOU FOR THE MEMORIES YOU CREATE FOR US"<br><br>
+                            <strong>BACK:</strong> "ALL ACTORS APPRECIATE AND DESERVE STANDING OVATIONS BESIDES APPLAUSE IT IS THEIR MAIN OR ONLY REWARD PAYMENT"
+                        </div>
+                    </div>
+                    <div class="bio-image">
+                        <h4>Doug Edmunds</h4>
+                        <p>Born: May 12, 1938</p>
+                        <p>Location: Mt. Vernon, WA</p>
+                        <p>Raised: West Philadelphia</p>
+                        <p>Military: US Air Force SAC</p>
+                        <p>Real Estate: Licensed 1971</p>
+                        <p>Theater Fan: 4,800+ Shows</p>
+                        <p>Photo Legacy: 20,000+ Images</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="theater" class="section">
+            <div class="container">
+                <h2>Theater Passion</h2>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Exploring Utah's Rich Theater Scene</p>
+                
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="indoor">Indoor Theaters</button>
+                        <button class="tab-btn" data-tab="outdoor">Outdoor Theaters</button>
+                        <button class="tab-btn" data-tab="highschools">High Schools</button>
+                        <button class="tab-btn" data-tab="musicals">Top Musicals</button>
+                    </div>
+
+                    <div id="indoor" class="tab-content active">
+                        <h3>Utah Indoor Theaters</h3>
+                        <div class="theater-grid" id="indoorTheaters">
+                            <!-- Indoor theaters will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div id="outdoor" class="tab-content">
+                        <h3>Utah Outdoor Theaters</h3>
+                        <div class="theater-grid" id="outdoorTheaters">
+                            <!-- Outdoor theaters will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div id="highschools" class="tab-content">
+                        <h3>High School Theaters</h3>
+                        <p>Doug has attended theater productions at 8 different high schools throughout Utah, supporting young performers and fostering the next generation of theater artists.</p>
+                    </div>
+
+                    <div id="musicals" class="tab-content">
+                        <h3>Highest-Grossing Musicals Worldwide</h3>
+                        <div class="shows-list" id="topMusicals">
+                            <!-- Top musicals will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="shows" class="section">
+            <div class="container">
+                <h2>Top 60 Favorite Shows</h2>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for a show..." id="showSearch">
+                </div>
+                <div class="shows-list" id="favoriteShows">
+                    <!-- Favorite shows will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section id="letter" class="section">
+            <div class="container">
+                <h2>Personal Letter to Merrill Osmond</h2>
+                <div class="letter">
+                    <h4>April 17, 2008</h4>
+                    
+                    <p>Dear Merrill,</p>
+                    
+                    <p>I wanted to write to you about the recent "The Civil War" production that concluded 12 days prior to this letter. Your voice during the performance was absolutely phenomenal - it reminded me strongly of Neil Diamond's distinctive style and power. The emotion and authenticity you brought to each song truly made the experience unforgettable.</p>
+                    
+                    <p>I was disappointed to learn that 40 people in the audience were unable to meet you during your sick time. However, I consider myself incredibly fortunate to have had the opportunity to meet 13 people in one matinee and 18 people in another performance. Each interaction was meaningful and special.</p>
+                    
+                    <p>One particularly memorable moment was during the "River Jordan" number with Carleton at the closing show. The performance received a standing ovation that seemed to go on forever. What touched my heart most was seeing the black audience members shouting "go brother, go sister" - it was a beautiful moment of unity and appreciation.</p>
+                    
+                    <p>As a theater superfan, I take great pride in bringing 50+ first-time theater attendees to shows. It's rewarding to share the magic of live theater with people who have never experienced it before. I was also honored to meet Carleton's mother and grandmother during the run of the show.</p>
+                    
+                    <p>Thank you for the countless hours of entertainment and the memories you've created. Your dedication to your craft and your ability to move an audience is truly remarkable.</p>
+                    
+                    <p>With sincere appreciation and gratitude,</p>
+                    <p>Doug Edmunds</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="real-estate" class="section">
+            <div class="container">
+                <h2>Real Estate Services</h2>
+                <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Professional real estate services with 40+ years of experience</p>
+                
+                <div class="real-estate-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Property Listings</h3>
+                        <p>Expert property marketing and sales with competitive commission rates and proven results.</p>
+                        <div style="margin-top: 1rem; color: var(--primary-blue); font-weight: bold;">
+                            1.5% Listing Commission
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">💼</div>
+                        <h3>Property Management</h3>
+                        <p>Comprehensive property management services with 48+ years of experience in rental management.</p>
+                        <div style="margin-top: 1rem; color: var(--primary-blue); font-weight: bold;">
+                            48+ Years Experience
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">📈</div>
+                        <h3>Investment Properties</h3>
+                        <p>Strategic real estate investment advice and property acquisition guidance for investors.</p>
+                        <div style="margin-top: 1rem; color: var(--primary-blue); font-weight: bold;">
+                            Expert Consultation
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info" style="margin-top: 3rem;">
+                    <div class="contact-card">
+                        <h4>Primary Phone</h4>
+                        <div class="contact-number">801-947-0200</div>
+                        <div class="contact-note">No text messages</div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Mobile/Text</h4>
+                        <div class="contact-number">801-514-6829</div>
+                        <div class="contact-note">Call or text available</div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h4>Email</h4>
+                        <div class="contact-number"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="691a010c1b05060a02060f0106040c1a1b0c08051d061b1a291008010606470a0604">[email&#160;protected]</a></div>
+                        <div class="contact-note">Professional inquiries</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="photos" class="section">
+            <div class="container">
+                <h2>Photography Services</h2>
+                <div class="photo-services">
+                    <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 2rem;">20,000+ Theater Photos Since 2006</h3>
+                    
+                    <div class="photo-stats">
+                        <div class="photo-stat">
+                            <div style="font-size: 2rem; font-weight: bold; color: var(--accent-blue);">20,000+</div>
+                            <div>Total Photos</div>
+                        </div>
+                        <div class="photo-stat">
+                            <div style="font-size: 2rem; font-weight: bold; color: var(--accent-blue);">18+</div>
+                            <div>Years Active</div>
+                        </div>
+                        <div class="photo-stat">
+                            <div style="font-size: 2rem; font-weight: bold; color: var(--accent-blue);">60+</div>
+                            <div>Theaters Visited</div>
+                        </div>
+                    </div>
+
+                    <h4 style="color: var(--primary-blue); margin: 2rem 0 1rem;">Available Services:</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">📧 Email digital copies of photos</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">🖼️ Print photo services available</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">💾 Personal recovery system for backup</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">📱 Social media sharing services</li>
+                        <li style="padding: 0.5rem 0;">📞 Contact for custom photo requests</li>
+                    </ul>
+
+                    <p style="text-align: center; margin-top: 2rem; font-style: italic; color: var(--primary-blue);">
+                        "Every show deserves to be remembered. Let me help preserve your theater memories."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Information</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject...</option>
+                            <option value="real-estate">Real Estate Inquiry</option>
+                            <option value="theater">Theater Information</option>
+                            <option value="photos">Photo Services</option>
+                            <option value="general">General Question</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Please provide details about your inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Doug Edmunds</h4>
+                    <p>Professional real estate services and passionate theater enthusiast with over 40 years of experience.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p>Real Estate Services</p>
+                    <p>Theater Photography</p>
+                    <p>Theater Information</p>
+                    <p>Personal Biography</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Phone: 801-947-0200</p>
+                    <p>Mobile: 801-514-6829</p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b6c5ded3c4dad9d5ddd9d0ded9dbd3c5c4d3d7dac2d9c4c5f6cfd7ded9d998d5d9db">[email&#160;protected]</a></p>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link" title="Facebook">f</a>
+                <a href="#" class="social-link" title="Twitter">t</a>
+                <a href="#" class="social-link" title="Instagram">i</a>
+            </div>
+            
+            <p style="margin-top: 2rem; opacity: 0.8;">
+                &copy; 2025 Doug Edmunds. All rights reserved. | Supporting the arts and helping families find their homes.
+            </p>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theater data
+        const indoorTheaters = [
+            "Hale Centre Theatre (new, 2 theaters)",
+            "Hale Theater Orem",
+            "CenterPoint Legacy Theater Centerville",
+            "Grand Theater SLC",
+            "Capitol Kingsbury SLC",
+            "Pioneer SLC",
+            "SLAC",
+            "ECCLESNEW SLC",
+            "Tuacahn St. George",
+            "Alpine Community Theater",
+            "Abravanel Hall SLC",
+            "Assembly Hall SLC",
+            "BYU Center Theaters (3) Provo",
+            "Caine Lyric Theatre Logan",
+            "Children's Theater SLC",
+            "Cottonwood Heights Theater",
+            "Covey Provo",
+            "Desert Star Playhouse SLC",
+            "Draper Historical Theater",
+            "Eccles Logan",
+            "Echo Theater Provo",
+            "Egyptian Theater Park City",
+            "Egyptian Theater Ogden",
+            "Electric Theater St. George",
+            "Ellen Eccles Theater Logan",
+            "Empress Magna",
+            "Energy Solutions SLC",
+            "Gardner Village Witchapalooza SLC",
+            "Good Company Theater Ogden",
+            "Hope Box Theater Kaysville",
+            "LDS Church Christmas Show SLC",
+            "Maverick Center SLC",
+            "Midvale Main St (2 theaters)",
+            "Murray Theater Murray",
+            "Woods Cross WC Off Broadway Theater",
+            "Park City Theater Park City",
+            "Parowan Community Theater",
+            "Payson Community Theater",
+            "Rose Wagner Center 3 theaters SLC",
+            "Scera Indoor Theater Orem",
+            "Shakespeare Festival 3 theaters Cedar City",
+            "Springville Playhouse",
+            "Terrace Plaza Playhouse Washington Territory",
+            "Timpanogos Theatre Heber City",
+            "West Valley City Arts",
+            "Ziegfeld Theatre Ogden"
+        ];
+
+        const outdoorTheaters = [
+            "Deer Valley Festival Deer Valley",
+            "Layton Outdoor Theater",
+            "Murray Park Theater Murray",
+            "Ogden Amphitheater",
+            "Red Butte Arboretum SLC",
+            "Sandy Amphitheater",
+            "Scera Shell Orem",
+            "Sundance Sundance",
+            "USANA West Valley",
+            "West Jordan",
+            "West Valley"
+        ];
+
+        const topMusicals = [
+            { name: "The Lion King", gross: "$8.2B" },
+            { name: "Phantom of the Opera", gross: "$6.06B" },
+            { name: "Mamma Mia!", gross: "$4B" },
+            { name: "Wicked", gross: "$3.53B" },
+            { name: "Cats", gross: "$3.5B" },
+            { name: "Les Miserables", gross: "$2.7B" },
+            { name: "Miss Saigon", gross: "$1.6B" },
+            { name: "Jersey Boys", gross: "$1.6B" },
+            { name: "Beauty and the Beast", gross: "$1.6B" },
+            { name: "Starlight Express", gross: "$1.2B" }
+        ];
+
+        const favoriteShows = [
+            "9 to 5", "42nd Street (Tony Winner)", "110 in the Shade", "1776", "A Chorus Line (9)", "AIDA",
+            "A Gentleman's Guide to Love and Murder (4)", "All Shook Up", "Always Patsy Cline", 
+            "Annie Get Your Gun", "Beauty and the Beast", "Billy Elliot the Musical", "Bright Star", 
+            "Hair Spray", "Brigadoon", "Camelot", "Chicago (Tony Winner)", "Civil War", "Big", 
+            "Color Purple", "Crazy for You", "Cagney", "Daddy Long Legs", "Into the Woods", 
+            "Dear Evan Hansen (7)", "Dirty Rotten Scoundrels", "Dream Girls", "Drowsy Chaperone", 
+            "Fiddler on the Roof", "Guys and Dolls (4)", "Hairspray (8)", "Hamilton (Tony Winner)", 
+            "Hello Dolly (10)", "How to Succeed in Business Without Really Trying (7)", 
+            "Hunchback of Notre Dame", "In the Heights (4)", "Jersey Boys (4)", "Jesus Christ Superstar", 
+            "Joseph and the Amazing Technicolor Dreamcoat"
+        ];
+
+        // Populate theater data
+        function populateTheaters() {
+            const indoorContainer = document.getElementById('indoorTheaters');
+            const outdoorContainer = document.getElementById('outdoorTheaters');
+            
+            indoorTheaters.forEach(theater => {
+                const card = document.createElement('div');
+                card.className = 'theater-card';
+                card.innerHTML = `
+                    <h4>${theater.split(' (')[0]}</h4>
+                    <span class="theater-type">Indoor Theater</span>
+                    <p>${theater.includes('(') ? theater.split('(')[1].replace(')', '') : 'Professional theater venue'}</p>
+                `;
+                indoorContainer.appendChild(card);
+            });
+
+            outdoorTheaters.forEach(theater => {
+                const card = document.createElement('div');
+                card.className = 'theater-card';
+                card.innerHTML = `
+                    <h4>${theater}</h4>
+                    <span class="theater-type">Outdoor Theater</span>
+                    <p>Outdoor venue perfect for summer performances</p>
+                `;
+                outdoorContainer.appendChild(card);
+            });
+        }
+
+        // Populate top musicals
+        function populateMusicals() {
+            const container = document.getElementById('topMusicals');
+            topMusicals.forEach(musical => {
+                const item = document.createElement('div');
+                item.className = 'show-item';
+                item.innerHTML = `
+                    <strong>${musical.name}</strong><br>
+                    <span style="color: var(--accent-blue); font-weight: bold;">${musical.gross}</span>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Populate favorite shows
+        function populateFavoriteShows() {
+            const container = document.getElementById('favoriteShows');
+            favoriteShows.forEach(show => {
+                const item = document.createElement('div');
+                item.className = 'show-item';
+                item.innerHTML = `<strong>${show}</strong>`;
+                container.appendChild(item);
+            });
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('showSearch');
+            const showContainer = document.getElementById('favoriteShows');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const shows = showContainer.getElementsByClassName('show-item');
+                
+                Array.from(shows).forEach(show => {
+                    const showText = show.textContent.toLowerCase();
+                    if (showText.includes(searchTerm) || searchTerm === '') {
+                        show.style.display = 'block';
+                    } else {
+                        show.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Tab functionality
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        }
+
+        // Mobile menu functionality
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Smooth scrolling for navigation
+        function setupSmoothScrolling() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Form submission
+        function setupForm() {
+            const form = document.getElementById('contactForm');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                // Show success message
+                alert(`Thank you, ${data.name}! Your message has been sent. Doug will get back to you soon.`);
+                
+                // Reset form
+                form.reset();
+            });
+        }
+
+        // Initialize all functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            populateTheaters();
+            populateMusicals();
+            populateFavoriteShows();
+            setupSearch();
+            setupTabs();
+            setupMobileMenu();
+            setupSmoothScrolling();
+            setupForm();
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(0, 51, 102, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'var(--primary-blue)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add loading animation
+        function showLoading() {
+            const loading = document.createElement('div');
+            loading.className = 'loading';
+            loading.innerHTML = '<div class="spinner"></div>';
+            document.body.appendChild(loading);
+            
+            setTimeout(() => {
+                loading.remove();
+            }, 1000);
+        }
+
+        // Add click animations
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.tab-btn, .submit-btn, .nav-menu a')) {
+                const element = e.target;
+                element.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    element.style.transform = '';
+                }, 150);
+            }
+        });
+    </script>
+</body>
+</html>
