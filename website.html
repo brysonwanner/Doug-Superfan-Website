@@ -14,6 +14,9 @@
             --white: #FFFFFF;
             --light-gray: #F8F9FA;
             --dark-gray: #333333;
+            --gold: #FFD700;
+            --gold-light: #FFF2A8;
+            --gold-dark: #E6C200;
         }
 
         * {
@@ -330,6 +333,162 @@
             margin: 1rem 0;
             font-size: 0.9rem;
             line-height: 1.6;
+        }
+
+        /* Gold Accent Superfan Section */
+        .superfan-section {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--white) 100%);
+            border: 3px solid var(--gold);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .superfan-section::before {
+            content: '⭐';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .superfan-section h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .superfan-section h3::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0.5rem auto;
+        }
+
+        .shirt-highlight {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: var(--primary-blue);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .shirt-front, .shirt-back {
+            background: var(--white);
+            color: var(--dark-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: bold;
+            border-left: 5px solid var(--gold);
+            position: relative;
+        }
+
+        .shirt-front::before {
+            content: 'FRONT:';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .shirt-back::before {
+            content: 'BACK:';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            background: var(--pale-blue);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .article-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 51, 102, 0.1);
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.2);
+        }
+
+        .article-meta {
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .article-excerpt {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .article-link {
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .doug-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem auto;
+            display: block;
+            box-shadow: 0 3px 15px rgba(0, 51, 102, 0.2);
         }
 
         /* Personal Letter */
@@ -682,8 +841,10 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#biography">Biography</a></li>
+                <li><a href="#superfan">Superfan</a></li>
                 <li><a href="#theater">Theater Passion</a></li>
                 <li><a href="#shows">Favorite Shows</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#letter">Personal Letter</a></li>
                 <li><a href="#real-estate">Real Estate</a></li>
                 <li><a href="#photos">Photo Services</a></li>
@@ -736,12 +897,7 @@
                         <h3>Theater Discovery</h3>
                         <p>Doug's theater addiction began unexpectedly and grew into an extraordinary passion. Over 18 years, he attended more than 4,800 shows across 60+ Utah theaters, capturing over 20,000 photos. His dedication to supporting the arts has made him a beloved figure in the theater community.</p>
 
-                        <h3>Superfan Recognition</h3>
-                        <p>Known for his unwavering support of theater artists, Doug created a signature t-shirt that reads:</p>
-                        <div class="shirt-design">
-                            <strong>FRONT:</strong> "ACTORS-THANK YOU FOR THE MEMORIES YOU CREATE FOR US"<br><br>
-                            <strong>BACK:</strong> "ALL ACTORS APPRECIATE AND DESERVE STANDING OVATIONS BESIDES APPLAUSE IT IS THEIR MAIN OR ONLY REWARD PAYMENT"
-                        </div>
+
                     </div>
                     <div class="bio-image">
                         <h4>Doug Edmunds</h4>
@@ -752,6 +908,87 @@
                         <p>Real Estate: Licensed 1971</p>
                         <p>Theater Fan: 4,800+ Shows</p>
                         <p>Photo Legacy: 20,000+ Images</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Superfan Recognition Section -->
+        <section id="superfan" class="section">
+            <div class="container">
+                <h2>Superfan Recognition</h2>
+                <div class="superfan-section">
+                    <h3>Utah's Theater Superfan</h3>
+                    <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem; color: var(--primary-blue);">
+                        Meet Doug Edmunds - the legendary "Superfan" of Utah theater, famous for his unwavering dedication to supporting actors and the performing arts.
+                    </p>
+                    
+                    <div style="text-align: center; margin: 2rem 0;">
+                        <img src="https://www.deseret.com/resizer/v2/FS4UM64XGR6ZXSNZPM5XW63RMM.jpg" 
+                             alt="Doug Edmunds at Jewel Box Theatre" 
+                             class="doug-photo"
+                             onerror="this.style.display='none'">
+                        <p style="font-style: italic; color: var(--primary-blue); margin-top: 1rem;">
+                            Doug Edmunds at the Jewel Box Theatre, Sandy, Utah
+                        </p>
+                    </div>
+
+                    <div class="shirt-highlight">
+                        <h4 style="margin-bottom: 1rem; font-size: 1.5rem;">The Famous Royal Blue Sweatshirt</h4>
+                        <p style="font-style: italic; font-size: 1.1rem;">
+                            "Doug wears a signature royal blue sweatshirt with a white turtleneck to every performance - easily recognizable throughout Utah's theater community."
+                        </p>
+                        
+                        <div class="shirt-front">
+                            <p style="margin-top: 0.5rem;">"ACTORS — THANK YOU FOR THE MEMORIES YOU CREATE FOR US. SUPERFAN, ADDICTED TO LIVE THEATRE."</p>
+                        </div>
+                        
+                        <div class="shirt-back">
+                            <p style="margin-top: 0.5rem;">"ALL ACTORS APPRECIATE AND DESERVE STANDING OVATIONS. BESIDES APPLAUSE, IT IS THEIR MAIN OR ONLY REWARD PAYMENT."</p>
+                        </div>
+                        
+                        <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--primary-blue);">
+                            (12 sweatshirts total - 6 reserved for special occasions)
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+                        <div style="text-align: center;">
+                            <img src="https://www.deseret.com/resizer/v2/MXO3X3MPGWXX6OI77AWN4OA6UI.jpg" 
+                                 alt="Doug holding My Fair Lady program" 
+                                 class="doug-photo"
+                                 onerror="this.style.display='none'">
+
+                        </div>
+                        <div style="text-align: center;">
+                            <img src="https://www.deseret.com/resizer/v2/YWCNTFWX3O6I6N6JVKRYDHXKUE.jpg" 
+                                 alt="Doug in Hale Centre Theatre lobby" 
+                                 class="doug-photo"
+                                 onerror="this.style.display='none'">
+
+                        </div>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Superfan Legacy & Recognition</h4>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">🏆 Nickname "Superfan" given by actor David Weekes (2007)</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">👔 Known as "the loudest 80-year-old in the theater" during standing ovations</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">📱 Passes out business cards with sweatshirt message to fellow theater lovers</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">📚 Keeps thick white binders tracking performances with calendar templates</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #E0E0E0;">💎 Season ticket holder at 9 different Utah theaters</li>
+                            <li style="padding: 0.5rem 0;">🎭 Leads standing ovations by popping out of his seat, hollering, and clapping</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%); color: var(--white); padding: 2rem; border-radius: 10px; text-align: center;">
+                        <h4 style="color: var(--gold); margin-bottom: 1rem;">The Superfan Quote</h4>
+                        <p style="font-size: 1.2rem; font-style: italic; line-height: 1.6;">
+                            "I find immense joy in seeing others enjoy performances, comparing it to parents taking their children to Disneyland."
+                        </p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+                            - Doug Edmunds on sharing the theater experience
+                        </p>
                     </div>
                 </div>
             </div>
@@ -807,6 +1044,80 @@
                 </div>
                 <div class="shows-list" id="favoriteShows">
                     <!-- Favorite shows will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="section">
+            <div class="container">
+                <h2>In the News</h2>
+                <div class="articles-section">
+                    <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 2rem;">Media Coverage & Recognition</h3>
+                    
+                    <div class="articles-grid">
+                        <div class="article-card">
+                            <div class="article-meta">January 10, 2024 | KSL News</div>
+                            <div class="article-title">85-Year-Old Man Nearly Killed by Collapsed Tree in Utah Snow Squall</div>
+                            <div class="article-excerpt">
+                                Doug Edmunds was nearly killed when a 55-foot pine tree collapsed during a fierce snow squall in Cottonwood Heights, Utah. 
+                                He was delivering doughnuts from Hale Center Theatre in Orem to his neighbor when the massive tree fell on him, 
+                                burying him under the branches. Despite the dramatic incident, Doug described himself as "very lucky to have survived, 
+                                missing death by seconds" and remains a dedicated theater superfan.
+                            </div>
+                            <a href="https://ksltv.com/weather/85-year-old-man-nearly-killed-by-collapsed-tree-in-utah-snow-squall/613871/" 
+                               class="article-link" target="_blank">Read Article</a>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-meta">November 28, 2017 | Deseret News</div>
+                            <div class="article-title">Meet the 80-Year-Old Superfan Who Can't Stop Buying Local Theater Tickets</div>
+                            <div class="article-excerpt">
+                                In-depth feature on Doug Edmunds as Utah's premier theater superfan. At almost 80 years old, Doug is recognized for attending 
+                                35 performances in a single month, including 4 shows in one day. The article details his famous royal blue sweatshirt, 
+                                his love for theater that began in London during his Air Force service, and his mission to bring first-time theater 
+                                attendees to shows. Features statistics including 280 projected annual performances and his record of seeing 
+                                "Les Misérables" 100 times.
+                            </div>
+                            <a href="https://www.deseret.com/2017/11/28/20636436/meet-the-80-year-old-superfan-who-can-t-stop-buying-local-theater-tickets/" 
+                               class="article-link" target="_blank">Read Article</a>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-meta">Undated | BYU Universe</div>
+                            <div class="article-title">87-Year-Old Man Attends Local Theater Shows Nearly Every Day for 20 Years</div>
+                            <div class="article-excerpt">
+                                Coverage of Doug Edmunds' extraordinary theater attendance record, highlighting his decades-long dedication to supporting 
+                                Utah's theater community. The article emphasizes his role as a pillar of the local arts scene and his impact on both 
+                                performers and fellow theater enthusiasts across the state.
+                            </div>
+                            <a href="https://universe.byu.edu/metro/87-year-old-man-attends-local-theater-shows-nearly-everyday-for-20-years" 
+                               class="article-link" target="_blank">Read Article</a>
+                        </div>
+
+                        <div class="article-card">
+                            <div class="article-meta">Undated | Apple Podcasts</div>
+                            <div class="article-title">Doug Edmunds: Theatre Addiction</div>
+                            <div class="article-excerpt">
+                                Podcast interview exploring Doug's theater addiction and his extraordinary journey through Utah's theater scene. 
+                                The podcast delves into his philosophy on theater, his relationships with actors, and what drives his insatiable 
+                                appetite for live performances.
+                            </div>
+                            <a href="https://podcasts.apple.com/fr/podcast/doug-edmunds-theatre-addiction/id1242085728?i=1000652309188" 
+                               class="article-link" target="_blank">Listen to Podcast</a>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--white); padding: 2rem; border-radius: 10px; margin-top: 2rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;">Recognition & Impact</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.6;">
+                            Doug's dedication to theater has made him a beloved figure throughout Utah's arts community. 
+                            His story has been featured in multiple media outlets, highlighting not just his extraordinary 
+                            attendance record, but his genuine passion for supporting actors and fostering appreciation 
+                            for live theater. From near-death experiences to record-breaking attendance, Doug's journey 
+                            exemplifies the transformative power of the performing arts.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -884,7 +1195,7 @@
                     
                     <div class="contact-card">
                         <h4>Email</h4>
-                        <div class="contact-number"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="691a010c1b05060a02060f0106040c1a1b0c08051d061b1a291008010606470a0604">[email&#160;protected]</a></div>
+                        <div class="contact-number"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6d5cec3d4cac9c5cdc9c0cec9cbc3d5d4c3c7cad2c9d4d5e6dfc7cec9c988c5c9cb">[email&#160;protected]</a></div>
                         <div class="contact-note">Professional inquiries</div>
                     </div>
                 </div>
@@ -989,7 +1300,7 @@
                     <h4>Contact Info</h4>
                     <p>Phone: 801-947-0200</p>
                     <p>Mobile: 801-514-6829</p>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b6c5ded3c4dad9d5ddd9d0ded9dbd3c5c4d3d7dac2d9c4c5f6cfd7ded9d998d5d9db">[email&#160;protected]</a></p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f3e8e5f2ecefe3ebefe6e8efede5f3f2e5e1ecf4eff2f3c0f9e1e8efefaee3efed">[email&#160;protected]</a></p>
                 </div>
             </div>
             
