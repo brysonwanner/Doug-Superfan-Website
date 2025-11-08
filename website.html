@@ -70,8 +70,10 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            flex-wrap: wrap;
+            gap: 0.3rem;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .nav-menu a {
@@ -79,8 +81,11 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
+            padding: 0.3rem 0.4rem;
             border-radius: 5px;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            letter-spacing: -0.02em;
         }
 
         .nav-menu a:hover {
@@ -723,6 +728,17 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .nav-menu {
+                gap: 0.1rem;
+            }
+            
+            .nav-menu a {
+                font-size: 0.7rem;
+                padding: 0.25rem 0.3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -1195,7 +1211,7 @@
                     
                     <div class="contact-card">
                         <h4>Email</h4>
-                        <div class="contact-number"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6d5cec3d4cac9c5cdc9c0cec9cbc3d5d4c3c7cad2c9d4d5e6dfc7cec9c988c5c9cb">[email&#160;protected]</a></div>
+                        <div class="contact-number"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32415a57405e5d51595d545a5d5f57414057535e465d4041724b535a5d5d1c515d5f">[email&#160;protected]</a></div>
                         <div class="contact-note">Professional inquiries</div>
                     </div>
                 </div>
@@ -1300,7 +1316,7 @@
                     <h4>Contact Info</h4>
                     <p>Phone: 801-947-0200</p>
                     <p>Mobile: 801-514-6829</p>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80f3e8e5f2ecefe3ebefe6e8efede5f3f2e5e1ecf4eff2f3c0f9e1e8efefaee3efed">[email&#160;protected]</a></p>
+                    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9aab1bcabb5b6bab2b6bfb1b6b4bcaaabbcb8b5adb6abaa99a0b8b1b6b6f7bab6b4">[email&#160;protected]</a></p>
                 </div>
             </div>
             
